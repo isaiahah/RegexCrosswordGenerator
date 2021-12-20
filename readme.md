@@ -14,7 +14,7 @@ clues are bland by comparison.
 
 # Example
 
-Hint: The Love Songs of J. Alfred Prufrock
+Hint: The Love Song of J. Alfred Prufrock
 
 ```
 -------------------------------------------------------------------------------------------------------------------
