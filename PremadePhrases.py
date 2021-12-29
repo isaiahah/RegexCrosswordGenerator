@@ -5,6 +5,7 @@ with open("PremadePhrases.txt") as phrases_file:
     for phrase in phrases_file:
         phrase_list.append("[" + phrase.strip(" \n") + "]")
 
+
 def get_premade_phrases(include: List[str], exclude: List[str]) -> List[str]:
     """
     Find the premade phrases containing all letters in includes and none of the

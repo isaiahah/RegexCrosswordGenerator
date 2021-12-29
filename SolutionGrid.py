@@ -1,6 +1,7 @@
 from typing import Dict, Tuple, List
 from CrosswordGrid import CrosswordGrid, word_to_contents
 
+
 class SolutionCell:
     _char: str
     _groups: List[int]
