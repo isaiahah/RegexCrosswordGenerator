@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Correct</title>
+</head>
+<body>
+    <h1 style="color:green">Correct!</h1>
+    <p>Hint: {{ hint }}</p>
+    <table class="puzzle-grid">
+      <tr>
+        <th class="puzzle-header">Row Clues</th>
+        <th>{{ colclue0 }}</th>
+        <th>{{ colclue1 }}</th>
+        <th>{{ colclue2 }}</th>
+        <th>{{ colclue3 }}</th>
+        <th>{{ colclue4 }}</th>
+      </tr>
+      <tr>
+        <td>{{ rowclue0 }}</td>
+        <td>{{ i00 }}</td>
+        <td>{{ i01 }}</td>
+        <td>{{ i02 }}</td>
+        <td>{{ i03 }}</td>
+        <td>{{ i04 }}</td>
+      </tr>
+      <tr>
+        <td>{{ rowclue1 }}</td>
+        <td>{{ i10 }}</td>
+        <td>{{ i11 }}</td>
+        <td>{{ i12 }}</td>
+        <td>{{ i13 }}</td>
+        <td>{{ i14 }}</td>
+      </tr>
+      <tr>
+        <td>{{ rowclue0 }}</td>
+        <td>{{ i20 }}</td>
+        <td>{{ i21 }}</td>
+        <td>{{ i22 }}</td>
+        <td>{{ i23 }}</td>
+        <td>{{ i24 }}</td>
+      </tr>
+      <tr>
+        <td>{{ rowclue3 }}</td>
+        <td>{{ i30 }}</td>
+        <td>{{ i31 }}</td>
+        <td>{{ i32 }}</td>
+        <td>{{ i33 }}</td>
+        <td>{{ i34 }}</td>
+      </tr>
+      <tr>
+        <td>{{ rowclue4 }}</td>
+        <td>{{ i40 }}</td>
+        <td>{{ i41 }}</td>
+        <td>{{ i42 }}</td>
+        <td>{{ i43 }}</td>
+        <td>{{ i44 }}</td>
+      </tr>
+    </table>
+    {% if more_premade %}
+    <form action="/new_premade" method="post">
+      <input type="submit" value="Play new premade puzzle">
+    </form>
+    {% else %}
+        <p>All premade puzzles solved!</p>
+    {% endif %}
+    <form action="/new_random" method="post">
+        <input type="submit" value="Play new random puzzle">
+    </form>
+</body>
+</html>

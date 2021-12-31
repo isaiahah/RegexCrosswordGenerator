@@ -1,5 +1,5 @@
 from typing import Dict, Tuple, List
-from CrosswordGrid import CrosswordGrid, word_to_contents
+from RegexEntities.CrosswordGrid import CrosswordGrid, word_to_contents
 
 
 class SolutionCell:
@@ -249,4 +249,5 @@ def combine_to_clue(parts: List[str]) -> str:
                 done_last = "add +"
             if done_last == "add +":
                 pass
+        prev = curr
     return combined

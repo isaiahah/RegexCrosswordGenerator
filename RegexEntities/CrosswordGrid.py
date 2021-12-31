@@ -9,12 +9,14 @@ class CrosswordGrid:
     _contents: ndarray  # ndarray used to enforce shape and string lengths
     _row_clues: List[str]
     _col_clues: List[str]
+    _hint: str
     """
     _rows: number of rows in the crossword grid
     _cols: number of columns in the crossword grid
     _contents: contents of the crossword
     _row_clues: clues on the crossword rows
     _col_clues: clues on the crossword columns
+    _hint: hint to the solution
     """
 
     def __init__(self, shape: Tuple[int, int], contents: ndarray = None,
@@ -114,6 +116,18 @@ class CrosswordGrid:
         """
         self._row_clues = row_clues
 
+    def get_row_clues(self) -> List[str]:
+        """
+        :return: Row clues of this crossword puzzle
+        """
+        return self._row_clues
+
+    def get_col_clues(self) -> List[str]:
+        """
+        :return: Column clues of this crossword puzzle
+        """
+        return self._col_clues
+
     def set_col_clues(self, col_clues: List[str]) -> None:
         """
         Set the column clues to the given values
@@ -174,6 +188,12 @@ class CrosswordGrid:
         :return: True if the grid state matches both row and column clues
         """
         return self.row_check() and self.col_check()
+
+    def set_hint(self, hint: str) -> None:
+        self._hint = hint
+
+    def get_hint(self) -> str:
+        return self._hint
 
 
 def word_to_contents(word: str, shape: Tuple[int, int]) -> ndarray:

@@ -1,11 +1,10 @@
-from CrosswordGrid import CrosswordGrid, word_to_contents
-from PremadePhrases import get_premade_phrases
-from GroupManager import Group, GroupManager
+from RegexEntities.CrosswordGrid import CrosswordGrid, word_to_contents
+from RegexEntities.PremadeClues import get_premade_phrases
+from RegexEntities.GroupManager import Group, GroupManager
+from RegexEntities.SolutionGrid import SolutionGrid
 from random import choice, sample, randint, shuffle
 from string import ascii_uppercase, digits
 from typing import Tuple, List
-
-from SolutionGrid import SolutionGrid
 
 
 def rand_letter(exclude: List[str] = None) -> str:
@@ -33,6 +32,7 @@ def rand_number(exclude: List[str] = None) -> str:
         digit = choice(digits)
     return digit
 
+
 def rand_char(exclude: List[str] = None) -> str:
     """
     :param exclude: chars to not select
@@ -44,6 +44,7 @@ def rand_char(exclude: List[str] = None) -> str:
     while char in exclude:
         char = choice(ascii_uppercase + digits)
     return char
+
 
 def rangechar(include: str) -> str:
     """
@@ -183,7 +184,7 @@ class ClueGeneratorSeries(_ClueGenerator):
         curr_group = 0
 
         for row in range(self._rows):
-            series_len = randint(2, 3)
+            series_len = randint(2, 4)
             series_starts = randint(0, self._rows - series_len)
             series_indices = []
             series_word = ""
@@ -225,11 +226,10 @@ class ClueGeneratorSeries(_ClueGenerator):
                     if not group_manager.get_group((row, col)).is_specified():
                         col_clue, _ = make_range([cell.get_char()])
                         cell.set_col_clue(col_clue)
-                        cell.set_defining_col_clue()
                         group_manager.get_group((row, col)).set_specified()
                     else:
                         cell.set_col_clue(".")
-                        cell.set_defining_col_clue()
+                cell.set_defining_col_clue()
 
         return solution_grid.to_crosswordgrid()
 

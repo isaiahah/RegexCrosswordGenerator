@@ -5,7 +5,7 @@ from typing import List, Tuple
 from string import ascii_uppercase, digits
 
 solutions_list = []
-with open("PremadeSolutions.csv", newline="") as solutions_file:
+with open("RegexEntities/PremadeSolutions.csv", newline="") as solutions_file:
     solutions_reader = reader(solutions_file)
     for row in solutions_reader:
         solutions_list.append((row[0], row[1]))
@@ -22,10 +22,10 @@ class PremadeSolutionIterator:
     _at: Index of next pair to return
     """
     def __init__(self):
+        self._at = 0
         self._solutions = sample(solutions_list, len(solutions_list))
 
     def __iter__(self) -> PremadeSolutionIterator:
-        self._at = 0
         return self
 
     def __next__(self) -> Tuple[str, str]:
@@ -35,6 +35,9 @@ class PremadeSolutionIterator:
             return to_return
         else:
             raise StopIteration
+
+    def len_premade(self):
+        return len(self._solutions)
 
 
 class RandomSolutionIterator:

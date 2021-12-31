@@ -1,7 +1,7 @@
 from typing import List
 
 phrase_list = []
-with open("PremadePhrases.txt") as phrases_file:
+with open("RegexEntities/PremadeClues.txt") as phrases_file:
     for phrase in phrases_file:
         phrase_list.append("[" + phrase.strip(" \n") + "]")
 

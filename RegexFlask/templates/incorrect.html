@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Incorrect</title>
+</head>
+<body>
+    <h1 style="color: orangered">Incorrect!</h1>
+    <form action="/puzzle">
+        <input type="submit" value="Try Again!">
+    </form>
+    {% if more_premade %}
+    <form action="/new_premade" method="post">
+      <input type="submit" value="Play new premade puzzle">
+    </form>
+    {% else %}
+        <p>All premade puzzles solved!</p>
+    {% endif %}
+    <form action="/new_random" method="post">
+        <input type="submit" value="Play new random puzzle">
+    </form>
+
+
+</body>
+</html>

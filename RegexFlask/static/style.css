@@ -1,0 +1,21 @@
+.puzzle-grid {
+    width: 100%;
+    table-layout: fixed;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+}
+
+input[type=submit] {
+    align-self: start;
+    min-width: 10em;
+    padding: 4px 8px;
+}
+
+h1 {
+    text-align: center;
+}
